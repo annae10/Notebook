@@ -2,6 +2,7 @@ package com.ann.noteapp.model
 
 import androidx.room.*
 
+@Dao
 interface NoteDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
