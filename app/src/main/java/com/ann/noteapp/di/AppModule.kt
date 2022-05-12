@@ -11,24 +11,25 @@ import javax.inject.Singleton
 
 @Module
 class AppModule {
+    @Singleton
+    @Provides
+    fun providesNoteDao(db: NoteDb): NoteDao {
+        return db.noteDao()
+    }
+
+    @Singleton
+    @Provides
+    fun provideAppDatabase(app:Application): NoteDb {
+        return Room.databaseBuilder(app,NoteDb::class.java, "note_db")
+            .build()
+    }
+
+    @Singleton
+    @Provides
+    fun providesRepository():Repository{
+        return Repository()
+    }
+
 }
 
-@Singleton
-@Provides
-fun providesNoteDao(db: NoteDb): NoteDao {
-   return db.noteDao()
-}
-
-@Singleton
-@Provides
-fun provideAppDatabase(app:Application): NoteDb {
-    return Room.databaseBuilder(app,NoteDb::class.java, "note_db")
-        .build()
-}
-
-@Singleton
-@Provides
-fun providesRepository():Repository{
-    return Repository()
-}
 
