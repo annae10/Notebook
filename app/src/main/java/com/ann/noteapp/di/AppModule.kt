@@ -31,3 +31,4 @@ fun provideAppDatabase(app:Application): NoteDb {
 fun providesRepository():Repository{
     return Repository()
 }
+
