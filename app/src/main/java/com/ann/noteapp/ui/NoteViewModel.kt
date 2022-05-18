@@ -1,6 +1,7 @@
 package com.ann.noteapp.ui
 
 import androidx.lifecycle.ViewModel
+import javax.inject.Inject
 
-class NoteViewModel: ViewModel() {
+class NoteViewModel @Inject constructor(): ViewModel() {
 }
