@@ -37,7 +37,7 @@
                 android:inputType="text" />
 
             <EditText
-                android:id="@+id/addTag"
+                android:id="@+id/addStatus"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/tag"
