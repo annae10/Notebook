@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import com.ann.noteapp.R
+import com.ann.noteapp.model.Note
 import com.ann.noteapp.utils.ViewModelProviderFactory
 import dagger.android.support.DaggerFragment
 import kotlinx.android.synthetic.main.fragment_add.*
@@ -35,6 +36,25 @@ class AddFragment:DaggerFragment() {
         btnAdd.setOnClickListener {
             Navigation.findNavController(requireActivity(),R.id.container).popBackStack()
         }
+    }
+
+
+
+    override fun onDestroyView() {
+        saveNoteToDatabase()
+        super.onDestroyView()
+    }
+
+    private fun saveNoteToDatabase() {
+
+        val note = Note(0, addTitle.text.toString(), addDescription.text.toString(), addStatus.text.toString())
+
+        if (addTitle.text.isNullOrEmpty()){
+            note.title = "Empty Title"
+            noteViewModel.insert(note)
+            }else{
+            noteViewModel.insert(note)
+            }
     }
 
     private fun setUpViewModel() {
