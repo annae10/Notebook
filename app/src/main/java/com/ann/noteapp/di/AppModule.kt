@@ -24,10 +24,10 @@ class AppModule {
             .build()
     }
 
-    @Singleton
+    //@Singleton
     @Provides
-    fun providesRepository():Repository{
-        return Repository()
+    fun providesRepository(noteDao: NoteDao):Repository{
+        return Repository(noteDao)
     }
 
 }

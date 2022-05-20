@@ -4,9 +4,11 @@ import android.app.Application
 import com.ann.noteapp.BaseApplication
 import dagger.BindsInstance
 import dagger.Component
+import dagger.Provides
 import dagger.android.AndroidInjectionModule
 import dagger.android.AndroidInjector
 import javax.inject.Singleton
+
 
 @Singleton
 @Component(
